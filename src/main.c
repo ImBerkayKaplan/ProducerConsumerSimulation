@@ -2,14 +2,15 @@
 #include <stdlib.h>
 #include <stdio.h>
 #include <semaphore.h>
+#include <unistd.h>
 #include "buffer.h"
 
 void *producer(void *param) {
 
     buffer_item rand;
     int id = *((int *) param);
-    printf("\nProducer: %u, thread id = %u", id, pthread_self());
-    printf("\nSeed for Producer %u: %u\n", id, pthread_self());
+    printf("\nProducer: %u, thread id = %lu", id, (unsigned long) pthread_self());
+    printf("\nSeed for Producer %u: %lu\n", id, (unsigned long) pthread_self());
     while (1) {
 
         // Sleep for a random period of time
@@ -39,8 +40,8 @@ void *producer(void *param) {
 void *consumer(void *param) {
     buffer_item rand;
     int id = *((int *) param);
-    printf("\nConsumer: %u, thread id = %u", id, pthread_self());
-    printf("\nSeed for Consumer %u: %u\n", id, pthread_self());
+    printf("\nConsumer: %u, thread id = %lu", id, (unsigned long) pthread_self());
+    printf("\nSeed for Consumer %u: %lu\n", id, (unsigned long) pthread_self());
     while (1) {
 	
 	/* Sleep for a random period of time */

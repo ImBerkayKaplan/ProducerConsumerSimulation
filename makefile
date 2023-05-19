@@ -1,7 +1,7 @@
 GCC=gcc
 SOURCE=src
 C=*.c
-MAIN=P-Cprogram
+MAIN=main
 
 all: project
 
