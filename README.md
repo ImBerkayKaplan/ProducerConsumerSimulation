@@ -4,9 +4,9 @@
 
 ## Running The Project In Linux
 
-Use the make file by typing ```make``` in the terminal while in the project's root directory. The makefile will generate an executable named ```main``` in the project directory. 
+Use the make file by typing ```make``` in the terminal while in the project's root directory. The ```makefile``` will generate an executable named ```main``` in the project directory. 
 
-To run the program, type ```main <length-of-execution-in-seconds> <number-of-producers> <number-of-consumers>``` in the terminal when you are in the project's root directory. 
+To run the program, type ```./main <length-of-execution-in-seconds> <number-of-producers> <number-of-consumers>``` in the terminal when you are in the project's root directory. 
 
 ## Input Parameters
 
@@ -19,8 +19,8 @@ All input parameters are positive integers.<br />
 
 ```buffer.h``` and ```buffer.c``` files implement the shared circular array, which will be accessed by producer and consumer threads. The functions ```insert_item``` and ```remove_item``` inserts or removes items into/from the array.
 
-```producer``` simulates the producer and sleeps for random periods of time. It generates random items, which is a large integer. It uses the semaphore to be the only thread performing operations on the buffer array. It locks the mutex, places an item to the array, then unlocks the mutex. 
+The ```producer``` function simulates the producer and sleeps for random periods of time. It generates random items, which is a large integer. It uses the semaphore to be the only thread performing operations on the buffer array. It locks the mutex, places an item to the array, then unlocks the mutex. 
 
-```consumer``` simulates the consumer and sleeps for random periods of time. It removes items from the buffer array. It locks the mutex, removes an item from the array, then unlocks the mutex.
+The ```consumer``` function simulates the consumer and sleeps for random periods of time. It uses semaphore for the same purpose as ```producer``` to remove items from the buffer array. It locks the mutex, removes an item from the array, then unlocks the mutex.
 
 Each action in the simulation will be displayed to the terminal.
